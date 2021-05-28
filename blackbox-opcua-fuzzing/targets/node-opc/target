@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+/usr/bin/node /opt/app/node-opcua/packages/node-opcua-samples/bin/simple_server.js -a localhost -p 4840
+
+exit 0

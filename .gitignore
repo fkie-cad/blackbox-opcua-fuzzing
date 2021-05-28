@@ -1,0 +1,13 @@
+boofuzz-crash-bin-*
+boofuzz-results
+.cache
+coredumps
+crash_info_*
+.env
+.idea
+node_modules/
+package-lock.json
+*.pyc
+__pycache__
+python-opc/target
+setup_target_auto.sh

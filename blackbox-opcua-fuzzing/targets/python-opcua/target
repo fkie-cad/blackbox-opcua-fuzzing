@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+(
+    cd /opt/app/python-opcua/examples || return
+    ../.env/bin/python server-minimal.py
+)
+
+exit 0

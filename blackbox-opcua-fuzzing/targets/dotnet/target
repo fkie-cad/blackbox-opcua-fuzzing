@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+(
+  cd "/opt/app/UA-.NETStandard/Applications/ConsoleReferenceServer" || return
+  dotnet run --project NetCoreReferenceServer.csproj -a
+)
+
+exit 0
