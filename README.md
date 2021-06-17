@@ -28,7 +28,7 @@ So by using the container (powered by [docker](https://www.docker.com/)), most f
 The project includes an easy to use wrapper called `run_docker_fuzzing.py`.
 
 ```
-$ python3 run_docker_fuzzing.py --help
+$ python3 blackbox-opcua-fuzzing/run_docker_fuzzing.py --help
 usage: run_docker_fuzzing.py [-h] [-p PATH] {node-opc,open62541,python-opcua,dotnet,java}
 
 Fuzz OPC UA
@@ -124,8 +124,27 @@ You can add more fuzzing definitions in the `fuzzer/boofuzz_definition.py` file.
 Some more helpful functions are included to e.g. parse channel parameter from previous requests and construct timestamps.
 
 It is also possible to add more target implementations.
-The steps to do that are listed [here](targets/README.md).
+The steps to do that are listed [here](blackbox-opcua-fuzzing/targets/README.md).
 
-## Copyright
+## Acknowledgments
 
-Fraunhofer FKIE 2020 - 2021
+This project is financed by [German Federal Office for Information Security (BSI)](https://www.bsi.bund.de).  
+
+## License
+```
+    Firmware Analysis and Comparison Tool (FACT)
+    Copyright (C) 2020-2021  Fraunhofer FKIE
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+```

@@ -3,6 +3,7 @@ import os
 import random
 import sys
 from pathlib import Path
+from typing import Union
 
 import docker
 from docker.errors import ImageNotFound
@@ -11,6 +12,19 @@ DEFAULT_DIR = './fuzzing_results'
 BASE_TAG = 'opc-fuzzer/baseimage'
 TARGETS = ['node-opc', 'open62541', 'python-opcua', 'dotnet', 'java']
 SETUP_SH = '#!/usr/bin/env bash\n\ntargets/{target}/install.sh\n\nexit 0\n'
+
+
+class ChangeDirectory:
+    def __init__(self, target_directory: Union[str, Path]):
+        self._current_working_dir = None
+        self._target_directory = str(target_directory)
+
+    def __enter__(self):
+        self._current_working_dir = os.getcwd()
+        os.chdir(self._target_directory)
+
+    def __exit__(self, *args):
+        os.chdir(self._current_working_dir)
 
 
 def setup_argparse():
@@ -53,8 +67,9 @@ def setup_target(target: str):
 
 
 def start_fuzzing(target, local_path):
-    setup_target(target)
-    run_container(target, local_path)
+    with ChangeDirectory(Path(__file__).parent):
+        setup_target(target)
+        run_container(target, local_path)
 
 
 def main():
