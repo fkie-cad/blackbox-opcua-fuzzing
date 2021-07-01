@@ -2,7 +2,7 @@
 
 (
   cd "/opt/app/UA-.NETStandard/Applications/ConsoleReferenceServer" || return
-  dotnet run --project NetCoreReferenceServer.csproj -a
+  dotnet run --project ConsoleReferenceServer.csproj -a
 )
 
 exit 0
