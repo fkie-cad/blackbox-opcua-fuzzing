@@ -7,7 +7,7 @@ apt-get install -y nodejs
 
 npm install node-opcua --save
 
-git clone https://github.com/node-opcua/node-opcua
+git clone https://github.com/node-opcua/node-opcua -b v2.47.0
 
 cp targets/node-opc/target target
 

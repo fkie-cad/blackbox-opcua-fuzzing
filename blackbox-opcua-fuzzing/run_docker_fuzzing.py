@@ -9,7 +9,7 @@ import docker
 from docker.errors import ImageNotFound
 
 DEFAULT_DIR = './fuzzing_results'
-BASE_TAG = 'opc-fuzzer/baseimage'
+BASE_TAG = 'blackbox-fuzzer/baseimage'
 TARGETS = ['node-opc', 'open62541', 'python-opcua', 'dotnet', 'java']
 SETUP_SH = '#!/usr/bin/env bash\n\ntargets/{target}/install.sh\n\nexit 0\n'
 
@@ -47,7 +47,7 @@ def run_container(target: str, local_path: str):
         print('[INFO] First stage container missing. Building it now ...')
         client.images.build(path='.', tag=BASE_TAG, dockerfile='Dockerfile.pre')
 
-    unique_tag = f'opc-fuzzer/{target}-{random.getrandbits(32)}'
+    unique_tag = f'blackbox-fuzzer/{target}-{random.getrandbits(32)}'
 
     print('[INFO] Building container.')
     client.images.build(path='.', tag=unique_tag)

@@ -1,4 +1,4 @@
-FROM opc-fuzzer/baseimage
+FROM blackbox-fuzzer/baseimage
 
 WORKDIR /opt/app
 
